@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    
+    <style>
+        #container{
+            height:450px;
+            width:30%;
+            border:1px solid red;
+            margin:auto;
+            
+        }
+        h2{
+            text-align:center;
+            color:red;
+            font-weight:bold;
+        }
+        input{
+            display:flex;
+            display:block;
+            margin-left:40px;
+            width:80%;
+            height:30px;
+            justify-content:space-around;
+            text-align:center;
+            
+            
+        }
+        h3{
+             margin-left:38px;
+             color:green;
+            font-weight:bold;
+        }
+       #button{
+           margin-top:50px;
+       }
+    </style>
+</head>
+<body>
+    
+    <form>
+        <div id="container">
+            <h2>Sign Up</h2>
+            <h3>Full Name</h3>
+            <input type="text" placeholder="Enter Your full name" id="name"/>
+            <h3>Email</h3>
+            <input type="text"placeholder="Enter email"id="email"/>
+            <h3>Password</h3>
+            <input type="number"placeholder="Enter password"id="number"/>
+            <input id="button"type="submit"value="Sign Up"/>
+        </div>
+    </form>
+    
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit",value);
+    var store=JSON.parse(localStorage.getItem("signUp")) || [];
+    var arr=[]
+    function value(){
+        event.preventDefault();
+        var obj={
+          name:document.querySelector("#name").value,
+          email:document.querySelector("#email").value,
+          number:document.querySelector("#number").value,
+        }; 
+        arr.push(obj);
+       console.log(arr);
+       localStorage.setItem("signUp",JSON.stringify(arr));
+       window.location.href="login.html"; 
+    }
+       
+    </script>

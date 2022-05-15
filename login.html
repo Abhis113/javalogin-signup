@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="signup.html">
+    <style>
+        #container{
+            height:450px;
+            width:30%;
+            border:1px solid red;
+            margin:auto;
+            
+        }
+        h2{
+            text-align:center;
+            color:red;
+            font-weight:bold;
+        }
+        input{
+            display:flex;
+            display:block;
+            margin-left:40px;
+            width:80%;
+            height:30px;
+            justify-content:space-around;
+            text-align:center;
+            
+            
+        }
+        h3{
+             margin-left:38px;
+             color:green;
+            font-weight:bold;
+        }
+       #button{
+           margin-top:50px;
+       }
+    </style>
+</head>
+<body>
+    
+    <form id="form">
+        <div id="container">
+            <h2>Login Page</h2>
+            <h3>Full Name</h3>
+            <input type="text" placeholder="Enter Your full name"id="name1"/>
+            <h3>Email</h3>
+            <input type="text"placeholder="Enter email"id="email1"/>
+            <h3>Password</h3>
+            <input type="number"placeholder="Enter password"id="number1"/>
+            <input id="button"type="submit"value="Log in"/>
+        </div>
+    </form>
+    
+</body>
+</html>
+<script>
+    var store=JSON.parse(localStorage.getItem("signUp"));
+    document.querySelector("form").addEventListener("submit",login);
+     
+    function login(){
+           event.preventDefault()
+          
+             var name1=form.name1.value;
+             var email1=form.email1.value;
+             var number1=form.number1.value;
+           
+        
+         console.log(name1);
+         var flag=false
+    for(var i=0;i<store.length;i++){
+        if(store[i].name==name1 && store[i].email==email1 && store[i].number==number1){
+            flag=true;
+            break;
+        }
+    }
+
+    if(flag){
+        alert("login successful!")
+    }else{
+        alert("wrong credentials");
+       
+    }
+  
+   
+
+
+}    
+
+
+    
+
+    </script>
